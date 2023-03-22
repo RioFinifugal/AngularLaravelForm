@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubmitController;
+use App\Http\Controllers\ProductController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,4 @@ use App\Http\Controllers\SubmitController;
 */
 
 Route::post('/submit', [SubmitController::class, 'store']);
+Route::apiResource('/submits', ProductController::class);

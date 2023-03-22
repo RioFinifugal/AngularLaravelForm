@@ -15,4 +15,26 @@
       <br/>
       <button type="submit" class="btn btn-primary">Add</button>
     </form>
+    <div class="silly-table-wrapper">
+      <table class="silly-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of data">
+            <td>{{ row.name }}</td>
+            <td>{{ row.price }}</td>
+            <td>
+              <button class="silly-btn silly-btn-edit">Edit</button>
+              <button class="silly-btn silly-btn-rename">Rename</button>
+              <button class="silly-btn silly-btn-delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 </div>

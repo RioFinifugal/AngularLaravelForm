@@ -1,17 +1,16 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SubmitService } from './submit.service';
+import { DBDataService } from './dbdata.service';
 
-describe('SubmitService', () => {
-  let service: SubmitService;
+describe('DBDataService', () => {
+  let service: DBDataService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SubmitService);
+    service = TestBed.inject(DBDataService);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
-  
 });

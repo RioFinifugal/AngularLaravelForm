@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Submit;
+use App\Models\GetForm;
 
 class SubmitController extends Controller
 {

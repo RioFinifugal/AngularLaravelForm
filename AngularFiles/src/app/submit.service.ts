@@ -13,4 +13,7 @@ export class SubmitService {
   submitForm(data: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, data);
   }
+  getYourData() {
+    return this.http.get('http://localhost:8000/api/submit');
+  }
 }
