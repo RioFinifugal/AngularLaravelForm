@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit   
 {
-  title = 'Your Title';
+  title = 'My Angular-Laravel App!';
   name = '';
   price = '';
   data: any[] = [];
