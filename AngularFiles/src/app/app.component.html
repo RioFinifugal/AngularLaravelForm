@@ -19,6 +19,7 @@
       <table class="silly-table">
         <thead>
           <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Price</th>
             <th>Actions</th>
@@ -26,11 +27,11 @@
         </thead>
         <tbody>
           <tr *ngFor="let row of data">
+            <td>{{ row.id }}</td>
             <td>{{ row.name }}</td>
             <td>{{ row.price }}</td>
             <td>
-              <button class="silly-btn silly-btn-edit">Edit</button>
-              <button class="silly-btn silly-btn-rename">Rename</button>
+              <ngbd-modal-component></ngbd-modal-component>
               <button class="silly-btn silly-btn-delete">Delete</button>
             </td>
           </tr>

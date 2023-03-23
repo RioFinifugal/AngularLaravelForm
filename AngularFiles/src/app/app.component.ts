@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { SubmitService } from './submit.service';
 import { OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
