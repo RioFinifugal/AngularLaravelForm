@@ -35,6 +35,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 
+//This is the content of the pop+ the submit function
 export class NgbdModalContent {
   title = 'My Angular-Laravel App!';
   name = '';
