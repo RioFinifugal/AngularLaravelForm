@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -15,5 +16,8 @@ export class SubmitService {
   }
   getYourData() {
     return this.http.get('http://localhost:8000/api/submit');
+  }
+  updateSubmit(id: number, submitData: any) {
+    return this.http.put(`${this.apiUrl}/${id}`, submitData);
   }
 }

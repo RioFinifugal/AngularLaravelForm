@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Submit;
 use App\Models\GetForm;
 
+
 class SubmitController extends Controller
 {
     public function store(Request $request)
@@ -23,5 +24,22 @@ class SubmitController extends Controller
         $submit->save();
 
         return response()->json(['message' => 'Item added successfully'], 201);
+    }
+    public function update(Request $request, $id)
+    {
+        $submit = Submit::findOrFail($id);
+
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'price' => 'required|numeric',
+        ]);
+        $submit = Submit::findOrFail($id);
+        $submit->update($request->all());
+
+
+        return response()->json([
+            'message' => 'Row updated successfully.',
+            'data' => $submit,
+        ]);
     }
 }

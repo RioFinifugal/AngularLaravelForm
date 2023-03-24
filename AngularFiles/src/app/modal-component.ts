@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { SubmitService } from './submit.service';
 import { OnInit } from '@angular/core';
@@ -15,17 +15,17 @@ import { NgForm } from '@angular/forms';
       </button>
     </div>
     <div class="modal-body">
-    <form #form (ngSubmit)="submitForm(fm)" #fm="ngForm">
+    <form (ngSubmit)="submitModalForm()" #modalForm="ngForm">
       <div class="from-group">
         <label for="name">Item Name:</label>
-        <input type="text" class="form-control" [(ngModel)]="name" name="name" id="name">
+        <input type="text" class="form-control" [(ngModel)]="rowData.name" name="name" id="name">
       </div>
       <div class="form-group">
         <label for="price">Item Price:</label>
-        <input type="text" class="form-control" [(ngModel)]="price" name="price" id="price">
+        <input type="text" class="form-control" [(ngModel)]="rowData.price" name="price" id="price">
       </div>
       <br/>
-      <button type="submit" class="btn btn-primary">Add</button>
+      <button type="submit" class="btn btn-primary">Update</button>
     </form>
     </div>
     <div class="modal-footer">
@@ -41,6 +41,8 @@ export class NgbdModalContent {
   name = '';
   price = '';
   data: any[] = [];
+  @Input() rowData: any;
+  @Output() submitEvent = new EventEmitter<any>();
 
   constructor(public activeModal: NgbActiveModal, private submitService: SubmitService, private http: HttpClient) {}
 
@@ -65,6 +67,13 @@ export class NgbdModalContent {
         }
       );
     }
+    submitModalForm()
+    {
+      console.log('Submitting modal form with rowData:', this.rowData);
+      this.submitEvent.emit(this.rowData);
+      console.log('submitEvent emitted');
+      this.activeModal.close();
+    }
 }
 
 @Component({
@@ -77,8 +86,16 @@ export class NgbdModalContent {
 export class NgbdModalComponent {
   constructor(private modalService: NgbModal) {}
   
+@Input() rowData: any;
+@Output() submitEvent = new EventEmitter<any>();
+
+
   //opens the pop up window for user to alter data
   open() {
     const modalRef = this.modalService.open(NgbdModalContent);
+    modalRef.componentInstance.rowData = this.rowData;
+    modalRef.componentInstance.submitEvent.subscribe((updatedRow: any) => {
+      this.submitEvent.emit(updatedRow);
+    });
   }
 }

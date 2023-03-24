@@ -20,3 +20,4 @@ use App\Http\Controllers\ProductController;
 
 Route::post('/submit', [SubmitController::class, 'store']);
 Route::apiResource('/submits', ProductController::class);
+Route::put('/submit/{id}', [SubmitController::class, 'update']);

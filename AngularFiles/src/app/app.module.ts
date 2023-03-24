@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbdModalComponent, NgbdModalContent } from './modal-component';
+import { SortByIdPipe } from './sort-by-id.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NgbdModalComponent, 
-    NgbdModalContent
+    NgbdModalContent,
+    SortByIdPipe
   ],
   imports: [
     BrowserModule,

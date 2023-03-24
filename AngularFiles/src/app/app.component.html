@@ -26,15 +26,15 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let row of data">
+          <tr *ngFor="let row of data | sortById:'id'">
             <td>{{ row.id }}</td>
             <td>{{ row.name }}</td>
             <td>{{ row.price }}</td>
             <td>
-              <ngbd-modal-component></ngbd-modal-component>
+              <ngbd-modal-component [rowData]="row" (submitEvent)="onModalSubmit($event)"></ngbd-modal-component>
               <button class="silly-btn silly-btn-delete">Delete</button>
             </td>
-          </tr>
+          </tr>          
         </tbody>
       </table>
     </div>

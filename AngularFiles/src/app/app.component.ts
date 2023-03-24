@@ -43,9 +43,30 @@ export class AppComponent implements OnInit
       (response) => {
         console.log(response);
         form.resetForm();
+        
       },
       (error) => {
         console.error(error);
+      }
+    );
+    
+  }
+  onModalSubmit(updatedRow: any) {
+    console.log('Received updatedRow:', updatedRow);
+    // Find the index of the row in the data array
+    const index = this.data.findIndex(row => row.id === updatedRow.id);
+  
+    // Update the row data in the array
+    this.data[index] = updatedRow;
+  
+    // Send the updated row data to the Lavender backend to update the PostgreSQL table
+    // Replace this with the actual API call to your Lavender backend
+    this.submitService.updateSubmit(updatedRow.id, updatedRow).subscribe(
+      (response: any) => {
+        console.log('Row updated successfully:', response);
+      },
+      (error) => {
+        console.error('Error updating row:', error);
       }
     );
   }
