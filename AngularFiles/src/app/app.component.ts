@@ -43,7 +43,7 @@ export class AppComponent implements OnInit
       (response) => {
         console.log(response);
         form.resetForm();
-        
+        this.getData(); // Fetch data after submitting the form
       },
       (error) => {
         console.error(error);
