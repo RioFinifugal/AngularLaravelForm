@@ -42,4 +42,13 @@ class SubmitController extends Controller
             'data' => $submit,
         ]);
     }
+    public function destroy($id)
+    {
+            $submit = Submit::findOrFail($id);
+            $submit->delete();
+
+            return response()->json([
+                'message' => 'Row deleted successfully.',
+            ]);
+    }
 }
