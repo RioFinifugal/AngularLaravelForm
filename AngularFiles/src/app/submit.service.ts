@@ -20,4 +20,7 @@ export class SubmitService {
   updateSubmit(id: number, submitData: any) {
     return this.http.put(`${this.apiUrl}/${id}`, submitData);
   }
+  deleteSubmit(id: number) {
+    return this.http.delete(`${this.apiUrl}/${id}`);
+  }
 }

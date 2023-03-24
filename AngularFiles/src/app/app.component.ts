@@ -70,4 +70,15 @@ export class AppComponent implements OnInit
       }
     );
   }
+  deleteRow(id: number) {
+    this.submitService.deleteSubmit(id).subscribe(
+      (response) => {
+        console.log(response);
+        this.getData(); // Fetch data after deleting a row
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 }

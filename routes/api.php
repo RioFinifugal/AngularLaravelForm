@@ -18,6 +18,11 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+//submit and add data to SQL table 
 Route::post('/submit', [SubmitController::class, 'store']);
+//fetch data to display in HTML form
 Route::apiResource('/submits', ProductController::class);
+//update data that user edited in HTML form
 Route::put('/submit/{id}', [SubmitController::class, 'update']);
+//delete on button click
+Route::delete('/submit/{id}', [SubmitController::class, 'destroy']);
