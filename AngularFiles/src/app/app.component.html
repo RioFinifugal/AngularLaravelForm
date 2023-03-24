@@ -6,11 +6,18 @@
     <form #form (ngSubmit)="submitForm(fm)" #fm="ngForm">
       <div class="from-group">
         <label for="name">Item Name:</label>
-        <input type="text" class="form-control" [(ngModel)]="name" name="name" id="name">
+        <input type="text" class="form-control" [(ngModel)]="name" name="name" id="name" required #nameInput="ngModel">
+        <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="alert alert-danger">
+          <div *ngIf="nameInput.errors?.['required']">Name is required.</div>
+        </div>
       </div>
       <div class="form-group">
         <label for="price">Item Price:</label>
-        <input type="text" class="form-control" [(ngModel)]="price" name="price" id="price">
+        <input type="text" class="form-control" [(ngModel)]="price" name="price" id="price" required pattern="[0-9]+(\[0-9])?" #priceInput="ngModel">
+        <div *ngIf="priceInput.invalid && (priceInput.dirty || priceInput.touched)" class="alert alert-danger">
+          <div *ngIf="priceInput.errors?.['required']">Price is required.</div>
+          <div *ngIf="priceInput.errors?.['pattern']">Price must be a number with no decimal places.</div>
+        </div>
       </div>
       <br/>
       <button type="submit" class="btn btn-primary">Add</button>
