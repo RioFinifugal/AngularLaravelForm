@@ -1,10 +1,11 @@
 <div class="container">
-  <h1> 
+  <div class="form-wrapper">
+    <h1>
       Welcome to {{title}}!!
-  </h1>
-  <hr/>
+    </h1>
+    <hr />
     <form #form (ngSubmit)="submitForm(fm)" #fm="ngForm">
-      <div class="from-group">
+      <div class="form-group">
         <label for="name">Item Name:</label>
         <input type="text" class="form-control" [(ngModel)]="name" name="name" id="name" required #nameInput="ngModel">
         <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="alert alert-danger">
@@ -19,30 +20,32 @@
           <div *ngIf="priceInput.errors?.['pattern']">Price must be a number with no decimal places.</div>
         </div>
       </div>
-      <br/>
-      <button type="submit" class="btn btn-primary">Add</button>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Add</button>
+      </div>
     </form>
-    <div class="silly-table-wrapper">
-      <table class="silly-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let row of data | sortById:'id'">
-            <td>{{ row.id }}</td>
-            <td>{{ row.name }}</td>
-            <td>{{ row.price }}</td>
-            <td>
-              <ngbd-modal-component [rowData]="row" (submitEvent)="onModalSubmit($event)"></ngbd-modal-component>
-              <button class="silly-btn silly-btn-delete" (click)="deleteRow(row.id)">Delete</button>
-            </td>
-          </tr>          
-        </tbody>
-      </table>
-    </div>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of data | sortById:'id'">
+          <td>{{ row.id }}</td>
+          <td>{{ row.name }}</td>
+          <td>{{ row.price }}</td>
+          <td>
+            <ngbd-modal-component [rowData]="row" (submitEvent)="onModalSubmit($event)"></ngbd-modal-component>
+            <button class="silly-btn silly-btn-delete" (click)="deleteRow(row.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

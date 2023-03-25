@@ -1,3 +1,32 @@
+@import "bootstrap/scss/bootstrap";
+
+// Customize your theme
+$primary: #007bff;
+$danger: #dc3545;
+$light: #f8f9fa;
+
+// Import bootstrap functions, mixins, and variables
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+// Custom styles
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: linear-gradient(to right, #1c92d2, #f2fcfe);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.form-wrapper {
+  background-color: $light;
+  border-radius: 10px;
+  padding: 30px;
+}
 .silly-table-wrapper {
     display: flex;
     margin-top: 2rem;
