@@ -1,94 +1,111 @@
-@import "bootstrap/scss/bootstrap";
-
-// Customize your theme
-$primary: #007bff;
-$danger: #dc3545;
-$light: #f8f9fa;
-
-// Import bootstrap functions, mixins, and variables
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-
-// Custom styles
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-image: linear-gradient(to right, #1c92d2, #f2fcfe);
-  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .container {
-  max-width: 800px;
-  margin: 40px auto;
+  padding: 50px 0;
 }
 
 .form-wrapper {
-  background-color: $light;
-  border-radius: 10px;
-  padding: 30px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
 }
-.silly-table-wrapper {
-    display: flex;
-    margin-top: 2rem;
+
+.table-responsive {
+  margin-top: 20px;
+}
+
+.silly-btn {
+  font-family: Arial, sans-serif;
+  display: inline-block;
+  border: none;
+  padding: 5px 10px;
+  margin: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.silly-btn-edit {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.silly-btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.dark-mode,
+.dark-mode app-root {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+.dark-mode .form-wrapper,
+.dark-mode app-root .form-wrapper {
+  background-color: #333;
+}
+
+.dark-mode .table,
+.dark-mode .table-responsive {
+  color: #fff;
+}
+
+.dark-mode .table-striped tbody tr {
+  color: #fff !important;
+}
+
+.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark-mode .table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .table-striped tbody tr td,
+.dark-mode .table-striped tbody tr th {
+  color: #fff !important;
+}
+
+.dark-mode .silly-btn-edit,
+.dark-mode app-root .silly-btn-edit {
+  background-color: #409eff;
+  color: #fff;
+}
+
+.dark-mode .silly-btn-delete,
+.dark-mode app-root .silly-btn-delete {
+  background-color: #f56565;
+  color: #fff;
+}
+
+.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animate__animated:nth-child(even) {
+  animation-name: slideInUp;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
   }
-  
-  .silly-table {
-    width: 100%;
-    border-collapse: collapse;
-  
-    th, td {
-      border: 1px solid #dcdcdc;
-      padding: 0.5rem;
-      text-align: left;
-    }
-  
-    th {
-      background-color: #f2f2f2;
-      font-weight: bold;
-    }
-  
-    tbody tr:nth-child(even) {
-      background-color: #f8f8f8;
-    }
+  to {
+    transform: translateY(0);
   }
-  
-  .silly-btn {
-    background-color: #007bff;
-    border: none;
-    border-radius: 0.25rem;
-    color: white;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-right: 0.5rem;
-    padding: 0.25rem 0.5rem;
-    text-decoration: none;
-    transition: background-color 0.2s;
-  
-    &:hover {
-      background-color: #0056b3;
-    }
-  
-    &.silly-btn-edit {
-      background-color: #28a745;
-  
-      &:hover {
-        background-color: #1e7e34;
-      }
-    }
-  
-    &.silly-btn-rename {
-      background-color: #ffc107;
-  
-      &:hover {
-        background-color: #d39e00;
-      }
-    }
-  
-    &.silly-btn-delete {
-      background-color: #dc3545;
-  
-      &:hover {
-        background-color: #bd2130;
-      }
-    }
-  }
+}

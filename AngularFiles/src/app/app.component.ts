@@ -24,11 +24,13 @@ export class AppComponent implements OnInit
   ngOnInit(): void {
     this.getData();
   }
+  //Get data for the HTML table
   getData() {
     this.http.get('http://127.0.0.1:8000/api/submits').subscribe((response: any) => {
       this.data = response;
     });
   }
+  //submit the form on button click
   submitForm(form: NgForm) {
     if (form.invalid) {
       return;
@@ -59,8 +61,7 @@ export class AppComponent implements OnInit
     // Update the row data in the array
     this.data[index] = updatedRow;
   
-    // Send the updated row data to the Lavender backend to update the PostgreSQL table
-    // Replace this with the actual API call to your Lavender backend
+    // Send the updated row data to the Laravel backend to update the PostgreSQL table
     this.submitService.updateSubmit(updatedRow.id, updatedRow).subscribe(
       (response: any) => {
         console.log('Row updated successfully:', response);
@@ -70,6 +71,7 @@ export class AppComponent implements OnInit
       }
     );
   }
+  //Delete row on button click
   deleteRow(id: number) {
     this.submitService.deleteSubmit(id).subscribe(
       (response) => {
@@ -80,5 +82,10 @@ export class AppComponent implements OnInit
         console.error(error);
       }
     );
+  }
+  //dark mode
+  isDarkMode = false;
+  toggleDarkMode(): void {
+    this.isDarkMode = !this.isDarkMode;
   }
 }
