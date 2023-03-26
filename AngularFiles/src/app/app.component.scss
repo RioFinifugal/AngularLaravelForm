@@ -1,6 +1,8 @@
 body {
   font-family: Arial, sans-serif;
   transition: all 0.3s ease;
+  background-color:#92a8d1;
+  height: 100vh;
 }
 
 .wrapper {
@@ -16,6 +18,7 @@ body {
   background-color: #fff;
   padding: 20px;
   border-radius: 5px;
+  background-color:#92a8d1;
 }
 
 .table-responsive {
@@ -52,10 +55,14 @@ body {
   background-color: #121212;
   color: #f5f5f5;
 }
+.dark-mode body
+{
+  background-color: #121212;
+}
 
 .dark-mode .form-wrapper,
 .dark-mode app-root .form-wrapper {
-  background-color: #333;
+  background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
 }
 
 .dark-mode .table,
@@ -78,6 +85,10 @@ body {
 .dark-mode .table-striped tbody tr td,
 .dark-mode .table-striped tbody tr th {
   color: #fff !important;
+}
+body 
+{
+  background-color: #92a8d1;
 }
 
 .dark-mode .silly-btn-edit,
@@ -108,4 +119,11 @@ body {
   to {
     transform: translateY(0);
   }
+}
+
+.table td.name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
 }
