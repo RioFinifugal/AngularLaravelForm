@@ -57,3 +57,8 @@ Homestead.json
 .phpunit.result.cache
 
 # End of https://www.toptal.com/developers/gitignore/api/angular,laravel
+ReadMeGifs/AddData.gif
+ReadMeGifs/DarkMode.gif
+ReadMeGifs/EditData.gif
+ReadMeGifs/VerifyDecimal.gif
+ReadMeGifs/VerifyInput.gif
